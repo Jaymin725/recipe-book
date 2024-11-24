@@ -10,6 +10,8 @@ import Root from "./routes/root.jsx";
 // Pages
 import Home from "./pages/Home.jsx";
 import Add from "./pages/Add.jsx";
+import Recipe, { loader as recipeLoader } from "./pages/Recipe.jsx";
+import Error from "./pages/Error.jsx";
 
 // Bootstrap, Bootstrap Icons
 import "/node_modules/bootstrap/dist/css/bootstrap.min.css";
@@ -19,6 +21,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <Error />,
     children: [
       {
         index: true,
@@ -27,6 +30,11 @@ const router = createBrowserRouter([
       {
         path: "/recipes/add",
         element: <Add />,
+      },
+      {
+        path: "/recipes/:recipeId",
+        element: <Recipe />,
+        loader: recipeLoader,
       },
     ],
   },

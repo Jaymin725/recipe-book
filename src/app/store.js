@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import recipeReducer from "../features/recipes/recipesSlice.js";
+import recipeReducer from "../features/recipe/recipesSlice.js";
 
 export default configureStore({
   reducer: {
-    recipes: recipeReducer,
+    recipe: recipeReducer,
   },
 });

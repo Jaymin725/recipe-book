@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 // import { Form } from "react-router-dom";
-import { addRecipe } from "../features/recipes/recipesSlice.js";
+import { addRecipe } from "../features/recipe/recipesSlice.js";
 
 export default function Add() {
   const [recipe, setRecipe] = useState({});
@@ -21,6 +21,7 @@ export default function Add() {
   function handleSubmit(event) {
     event.preventDefault();
     dispatch(addRecipe(recipe));
+    setRecipe({});
   }
 
   return (
@@ -43,23 +44,38 @@ export default function Add() {
                 className="form-control"
                 required
                 onChange={handleChange}
+                value={recipe.dishName || ""}
               />
             </div>
             <div className="col-md-6">
-              <label htmlFor="author" className="form-label">
-                Author
+              <label htmlFor="chef" className="form-label">
+                Chef
               </label>
               <input
                 type="text"
-                id="author"
-                name="author"
+                id="chef"
+                name="chef"
                 className="form-control"
                 required
                 onChange={handleChange}
+                value={recipe.chef || ""}
+              />
+            </div>
+            <div className="col-md-6">
+              <label htmlFor="shortDesc" className="form-label">
+                Short Description
+              </label>
+              <textarea
+                id="shortDesc"
+                name="shortDesc"
+                className="form-control"
+                required
+                onChange={handleChange}
+                value={recipe.shortDesc || ""}
               />
             </div>
           </section>
-          <button type="submit" class="btn btn-primary mt-3">
+          <button type="submit" className="btn btn-primary mt-3">
             Add Recipe
           </button>
         </form>

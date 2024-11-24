@@ -3,7 +3,7 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 export default function Root() {
   return (
     <>
-      <header className="navbar shadow">
+      <header className="navbar sticky-top bg-light shadow">
         <div className="container-fluid">
           <Link to="/" className="navbar-brand">
             Recipe Book
